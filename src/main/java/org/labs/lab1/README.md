@@ -17,7 +17,9 @@
 1. **Склонуйте репозиторій**:
    ```bash
    git clone https://github.com/stvake/JavaBT.git
-   cd JavaBT
+   ```
+   ```bash
+   cd JavaBT\src\main\java\org\labs\lab1
    ```
 
 2. **Скомпілюйте програму**:
