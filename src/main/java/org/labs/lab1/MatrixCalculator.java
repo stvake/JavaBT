@@ -1,20 +1,28 @@
 package org.labs.lab1;
 
+// Клас для проведення операцій з матрицею
 public class MatrixCalculator {
 
-    public byte[][] multiplyMatrixByConstant(byte a, byte[][] B) {
+    // Метод для множення матриці на константу
+    public byte[][] multiplyMatrixByConstant(byte a, byte[][] B) throws ArithmeticException {
         int rows = B.length;
         int cols = B[0].length;
         byte[][] C = new byte[rows][cols];
 
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                C[i][j] = (byte) (a * B[i][j]);
+                int result = a * B[i][j];
+                if (result < Byte.MIN_VALUE || result > Byte.MAX_VALUE) {
+                    throw new ArithmeticException("Byte type overflow occurred when multiplying " +
+                            a + " and " + B[i][j]);
+                }
+                C[i][j] = (byte) result;
             }
         }
         return C;
     }
 
+    // Метод для обчислення суми найбільших елементів у кожному рядку
     public int calculateSumOfExtremes(byte[][] matrix){
         int sum = 0;
 
@@ -30,6 +38,7 @@ public class MatrixCalculator {
         return sum;
     }
 
+    // Метод для виведення матриці
     public void printMatrix(byte[][] matrix) {
         for (byte[] row : matrix) {
             for (byte value : row) {
