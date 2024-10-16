@@ -4,11 +4,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public class StringBuilderSorter {
+    // Метод для сортування слів, що починаються з голосних
     public static void sortWordsStartingWithVowel(StringBuilder text) {
         try {
             StringBuilder punctuations = new StringBuilder();
             StringBuilder cleanText = new StringBuilder();
 
+            // Проходимо по всіх символах тексту та додаємо їх до "чистого" тексту або до розділових знаків
             int wordIndex = 0;
             for (int i = 0; i < text.length(); i++) {
                 char c = text.charAt(i);
@@ -23,6 +25,7 @@ public class StringBuilderSorter {
                 }
             }
 
+            // Розбиваємо "чистий" текст на окремі слова, використовуючи пробіли
             StringBuilder[] cleanTextArr = new StringBuilder[wordIndex + 1];
             int lastIndex = 0;
             int wordIndex2 = 0;
@@ -38,6 +41,7 @@ public class StringBuilderSorter {
                 cleanTextArr[wordIndex2] = new StringBuilder(cleanText.substring(lastIndex, i + 1));
             }
 
+            // Розбиваємо рядок розділових знаків і позицій
             StringBuilder[] punctuationsArr = new StringBuilder[wordIndex+1];
             int lastIndex2 = 0;
             for (int i = 0; i < punctuations.length(); i++) {
@@ -50,6 +54,7 @@ public class StringBuilderSorter {
                 }
             }
 
+            // Фільтруємо і сортуємо слова, що починаються з голосних, за другою літерою
             StringBuilder[] vowelTextArr = Arrays.stream(cleanTextArr)
                     .filter(word -> {
                         char firstChar = word.charAt(0);
@@ -58,11 +63,11 @@ public class StringBuilderSorter {
                     .sorted(Comparator.comparing(sb -> sb.charAt(1)))
                     .toArray(StringBuilder[]::new);
 
-
             StringBuilder resultText = new StringBuilder();
             int vowelIndex = 0;
             wordIndex = 0;
 
+            // Відновлюємо початковий текст, замінюючи слова на відсортовані та повертаючи розділові знаки на місце
             for (StringBuilder word : cleanTextArr) {
                 char firstChar = word.charAt(0);
 
@@ -84,6 +89,7 @@ public class StringBuilderSorter {
             System.out.println(resultText.toString().trim());
 
         } catch (Exception e) {
+            // Виведення повідомлення про помилку, якщо виникає виключення
             System.out.println("Сталася помилка: " + (e.getMessage() == null ? e : e.getMessage()));
         }
 
