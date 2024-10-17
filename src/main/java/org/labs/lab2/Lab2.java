@@ -9,7 +9,6 @@ import java.util.Scanner;
 
 public class Lab2 {
     public static void main(String[] args) {
-        // Ананас Кабан осінь Качка їжак уява іграшка Курка енциклопедія, Тигр одяг Тигр2, ялинка.
         Scanner scanner = new Scanner(System.in);
 
         // Запитуємо користувача ввести текст та створюємо StringBuilder з введеного тексту
@@ -21,3 +20,5 @@ public class Lab2 {
         StringBuilderSorter.sortWordsStartingWithVowel(text);
     }
 }
+
+// Ананас Кабан осінь Качка їжак уява іграшка Курка енциклопедія, Тигр одяг Тигр2, ялинка.
