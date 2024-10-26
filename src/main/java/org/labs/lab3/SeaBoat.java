@@ -82,7 +82,9 @@ public class SeaBoat {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (!(obj instanceof SeaBoat boat)) return false;
+        if (!(obj instanceof SeaBoat)) return false;
+
+        SeaBoat boat = (SeaBoat) obj;
 
         return length == boat.length &&
                 builtYear == boat.builtYear &&
