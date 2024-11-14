@@ -2,14 +2,27 @@ package org.labs.lab4;
 
 import java.util.*;
 
+/**
+ * Клас для представлення тексту, що складається з речень.
+ * Він займається розбиттям тексту на речення зі слів типу Word та пунктуацій типу Punctuation.
+ * Також має метод сортування слів тексту, що починаються з голосних літер, за другою літерою.
+ */
 public class Text {
     private final StringBuilder text;
     private final List<Sentence> sentences = new ArrayList<>();
 
+    /**
+     * Конструктор класу Text. Він також замінить послідовність табуляцій та пробілів одним пробілом.
+     *
+     * @param text текст типу StringBuilder для обробки
+     */
     public Text(StringBuilder text) {
         this.text = replaceTabsAndSpacesWithSingleSpace(text);
     }
 
+    /**
+     * Розбирає текст на речення зі слів типу Word та пунктуацій типу Punctuation.
+     */
     public void parseText() {
         Map<Integer, Punctuation> punctuationMap = new HashMap<>();
         List<Word> words = new ArrayList<>();
@@ -38,6 +51,9 @@ public class Text {
         }
     }
 
+    /**
+     * Сортує слова, що починаються з голосних літер, за другою літерою.
+     */
     public void sortWordsStartingWithVowel() {
         List<Integer> sentencesSizes = new ArrayList<>();
         for (Sentence sentence : sentences) {
@@ -71,6 +87,13 @@ public class Text {
         }
     }
 
+    /**
+     * Розбиває StringBuilder на масив StringBuilder за заданим розділювачем.
+     *
+     * @param input вхідний StringBuilder
+     * @param delimiter розділювач
+     * @return розділений масив StringBuilder
+     */
     private static StringBuilder[] splitStringBuilder(StringBuilder input, char delimiter) {
         List<StringBuilder> result = new ArrayList<>();
         StringBuilder current = new StringBuilder();
@@ -89,6 +112,12 @@ public class Text {
         return result.toArray(new StringBuilder[0]);
     }
 
+    /**
+     * Заміщує послідовності табуляцій і пробілів одним пробілом.
+     *
+     * @param input вхідний StringBuilder
+     * @return StringBuilder з заміненими пробілами та табуляцією
+     */
     private static StringBuilder replaceTabsAndSpacesWithSingleSpace(StringBuilder input) {
         StringBuilder result = new StringBuilder();
         boolean inWhitespace = false;
@@ -107,6 +136,11 @@ public class Text {
         return result;
     }
 
+    /**
+     * Повертає рядкове представлення тексту з речень типу Sentence
+     *
+     * @return текст
+     */
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder();
