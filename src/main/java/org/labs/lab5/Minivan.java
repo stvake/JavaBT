@@ -3,7 +3,7 @@ package org.labs.lab5;
 /**
  * Клас для опису автомобілів типу Мінівен.
  */
-class Minivan extends Car {
+public class Minivan extends Car {
     /**
      * Конструктор для створення Мінівена.
      *

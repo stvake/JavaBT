@@ -3,7 +3,7 @@ package org.labs.lab5;
 /**
  * Клас для опису автомобілів типу Позашляховик.
  */
-class SUV extends Car {
+public class SUV extends Car {
     /**
      * Конструктор для створення Позашляховика.
      *

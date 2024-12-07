@@ -3,7 +3,7 @@ package org.labs.lab5;
 /**
  * Клас для опису автомобілів типу Седан.
  */
-class Sedan extends Car {
+public class Sedan extends Car {
     /**
      * Конструктор для створення Седана.
      *
