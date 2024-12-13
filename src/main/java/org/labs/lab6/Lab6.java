@@ -56,5 +56,22 @@ public class Lab6 {
         for (Car car : carSet3) {
             System.out.println(car);
         }
+
+        // Тестування методу .contains
+        System.out.println("\n" + carSet1.contains(car2));
+        System.out.println(carSet2.contains(car2));
+        System.out.println(carSet3.contains(car2));
+
+        // Тестування перетворення CarSet на масив Car[]
+        Car[] carArray = carSet3.toArray(new Car[0]);
+        System.out.println("\n" + Arrays.toString(carArray));
+
+        // Тестування методу .retainAll та виводу з використанням .toString
+        carSet1.retainAll(Arrays.asList(car2, car4));
+        System.out.println("\nCarSet1:" + carSet1);
+
+        // Тестування методу .removeAll та виводу з використанням .toString
+        carSet3.removeAll(Arrays.asList(car2, car4));
+        System.out.println("\nCarSet3:" + carSet3);
     }
 }
